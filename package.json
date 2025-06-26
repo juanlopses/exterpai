@@ -1,0 +1,24 @@
+{
+  "name": "yt-media-api",
+  "version": "1.0.0",
+  "description": "API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "youtube",
+    "mp3",
+    "mp4",
+    "api",
+    "express",
+    "axios",
+    "descargas"
+  ],
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "*",
+    "express": "*"
+  }
+}
