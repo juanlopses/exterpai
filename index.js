@@ -3,7 +3,36 @@ const axios = require('axios');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Endpoint MP3
+// Documentación básica en la raíz
+app.get('/', (req, res) => {
+  res.send(`
+    <h1>YouTube Media API</h1>
+    <p>API para obtener enlaces de descarga MP3 y MP4 desde YouTube.</p>
+
+    <h2>Endpoints</h2>
+    <ul>
+      <li>
+        <strong>GET /api/music?q=consulta</strong><br>
+        Devuelve información y enlace de descarga en formato MP3.
+      </li>
+      <li>
+        <strong>GET /api/video?q=consulta</strong><br>
+        Devuelve información y enlace de descarga en formato MP4.
+      </li>
+    </ul>
+
+    <h3>Ejemplos</h3>
+    <ul>
+      <li><a href="/api/music?q=DJ%20malam%20pagi%20slowed">/api/music?q=DJ malam pagi slowed</a></li>
+      <li><a href="/api/video?q=DJ%20malam%20pagi%20slowed">/api/video?q=DJ malam pagi slowed</a></li>
+    </ul>
+
+    <p>Respuesta de error:</p>
+    <pre>{ "error": "error" }</pre>
+  `);
+});
+
+// Endpoint para obtener MP3
 app.get('/api/music', async (req, res) => {
   const query = req.query.q;
   if (!query) {
@@ -39,7 +68,7 @@ app.get('/api/music', async (req, res) => {
   }
 });
 
-// Endpoint MP4
+// Endpoint para obtener MP4
 app.get('/api/video', async (req, res) => {
   const query = req.query.q;
   if (!query) {
